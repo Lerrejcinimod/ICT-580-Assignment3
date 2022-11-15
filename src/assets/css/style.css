@@ -1,4 +1,4 @@
-/* CSS Variables */
+@charset "UTF-8";
 :root {
   --primary: #ddd;
   --dark: #333;
@@ -23,24 +23,22 @@ body {
   color: var(--light);
   padding: 0.6rem 1.3rem;
   text-decoration: none;
-  border: 0;
+  border-radius: 2px;
 }
 
-img {
-  max-width: 100%;
+/* Added an image hover color shadow effect */
+img:hover {
+  box-shadow: 0 0 20px 10px rgba(58, 135, 160, 0.515);
+  opacity: 0.7;
 }
 
-.wrapper {
-  display: grid;
-  grid-gap: 20px;
-}
 
 /* Navigation */
 .main-nav ul {
   display: grid;
   grid-gap: 20px;
-  padding: 0;
-  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -52,32 +50,26 @@ img {
   text-align: center;
   color: var(--dark);
   text-transform: uppercase;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   box-shadow: var(--shadow);
 }
 
 .main-nav a:hover {
   background: var(--dark);
   color: var(--light);
+  
 }
 
-/* Top Container */
-.top-container {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-areas:
-    'showcase showcase top-box-a';
-}
 
 /* Showcase */
 h2{
   padding-bottom: 20px;
-  border-bottom: 2px solid  
+  border-bottom: 2px solid;  
 }
 .showcase {
   grid-area: showcase;
   min-height: 400px;
-  background: #cad;
+  background: rgb(173, 132, 194);
   background-size: cover;
   background-position: center;
   padding: 3rem;
@@ -100,59 +92,51 @@ h2{
   color: var(--dark);
 }
 
-/* Top Box */
-.top-box {
-  background: var(--primary);
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  box-shadow: var(--shadow);
-  padding: 1.5rem;
-}
-
-.top-box .price {
-  font-size: 2.5rem;
-}
-
-.top-box-a {
-  grid-area: top-box-a;
-}
-
-/* Boxes */
+/* Boxes  groupd the skill and */
 .boxes {
+  margin-left: auto;
+  margin-right: auto;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 12px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
-
 .box {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
   background: var(--dark);
   text-align: left;
-  padding: 1.5rem 2rem;
+  padding: 1rem;
   box-shadow: var(--shadow);
 }
+/*clear floats after the columns*/  
+.column{ 
+  float: right;
+  width: 100%;
+  padding: 10px;
+  height: 300px;
+}
+/*rsponsive layout - makes the two columns stack on top of each other*/ 
+.row:after {
+  content:"boxes";
+  display: table;
+  clear: both;
+}
+
 
 /* Info */
 .info {
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
   background: var(--dark);
   box-shadow: var(--shadow);
   display: grid;
   grid-gap: 30px;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 3rem;
+  grid-template-columns: repeat(0, 1fr);
+  padding: 1rem;
 }
 
-/* Portfolio */
-.portfolio {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.portfolio img {
-  width: 100%;
-  box-shadow: var(--shadow);
-}
 
 /* Footer */
 footer {
@@ -171,23 +155,7 @@ footer {
       'top-box-a top-box-b';
   }
 
-  .showcase h1 {
-    font-size: 2.5rem;
-  }
-
-  .main-nav ul {
-    grid-template-columns: 1fr;
-  }
-
-  .info {
-    grid-template-columns: 1fr;
-  }
-
-  .info .btn {
-    display: block;
-    text-align: center;
-    margin: auto;
-  }
+  
 }
 
 @media (max-width: 500px) {
